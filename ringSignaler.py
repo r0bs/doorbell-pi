@@ -1,4 +1,4 @@
-import telegram
+from telegram import Telegram
 import secrets
 
 class RingSignaler:
@@ -21,6 +21,7 @@ class RingSignaler:
 
     def sendNotification(self, pin):
         bot = telegram.Bot(token=secrets.telegramToken)
-
         message = self.composeMessage()
+
+        print("Sending notification to" + secrets.chatId)
         bot.sendMessage(secrets.chatId, message)
