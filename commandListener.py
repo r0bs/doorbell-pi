@@ -2,8 +2,8 @@ import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from doorOpener import openDoor
 
-hostName = "localhost"
-hostPort = 80
+hostName = "0.0.0.0"
+hostPort = 9000
 
 class CommandHandler(BaseHTTPRequestHandler):
     def do_GET(self):
