@@ -3,7 +3,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from doorOpener import openDoor
 
 hostName = "localhost"
-hostPort = 9000
+hostPort = 80
 
 class CommandHandler(BaseHTTPRequestHandler):
     def do_GET(self):
