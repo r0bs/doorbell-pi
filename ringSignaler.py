@@ -1,4 +1,4 @@
-from telegram import Telegram
+import telegram
 import secrets
 
 class RingSignaler:
