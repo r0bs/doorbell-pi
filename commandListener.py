@@ -2,7 +2,7 @@ import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from doorOpener import openDoor
 
-hostName = "raspberrypi"
+hostName = "localhost"
 hostPort = 9000
 
 class CommandHandler(BaseHTTPRequestHandler):
