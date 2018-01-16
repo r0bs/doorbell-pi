@@ -19,7 +19,7 @@ class RingSignaler:
         message = messageText + url
         return message
 
-    def sendNotification(self):
+    def sendNotification(self, pin):
         bot = telegram.Bot(token=secrets.telegramToken)
 
         message = self.composeMessage()
