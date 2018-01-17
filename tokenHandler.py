@@ -1,11 +1,13 @@
 import random
 from cryptography.fernet import Fernet
 
+keyTtl = 180
+
 class TokenHandler:
     
     def __init__(self):
         self.secret = bytes(str(random.random() * 10**100), "utf-8")
-        self.ttl = 180
+        self.ttl = keyTtl
         self.key = Fernet.generate_key()
         self.f = Fernet(self.key)
 

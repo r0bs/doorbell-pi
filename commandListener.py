@@ -16,7 +16,6 @@ class CommandHandler(BaseHTTPRequestHandler):
             self.send_header("Content-type", "text/html")
             self.end_headers()
             self.wfile.write(bytes(gui.success, "utf-8"))
-
         else:
             self.send_response(403)
             self.send_header("Content-type", "text/html")
@@ -24,7 +23,6 @@ class CommandHandler(BaseHTTPRequestHandler):
             self.wfile.write(bytes(gui.rejection, "utf-8"))
 
 class CommandServer:
-
     def __init__(self, tokenHandler):
         server = HTTPServer((hostName, hostPort), CommandHandler)
         server.tokenHandler = tokenHandler
@@ -32,7 +30,7 @@ class CommandServer:
             server.serve_forever()
         except KeyboardInterrupt:
             pass
-
+            
         server.server_close()
         print(time.asctime(), "Door Server Stops - %s:%s" % (hostName, hostPort))
 
