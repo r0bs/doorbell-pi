@@ -8,7 +8,7 @@ def startListeningForRing(tokenhandler):
     try:
         signaler = RingSignaler(tokenhandler)
         GPIO.setmode(GPIO.BOARD)
-        GPIO.setup(gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
         GPIO.add_event_detect(gpio_pin, GPIO.FALLING, callback = signaler.sendNotification, bouncetime = 400)
         while True:
             sleep(1)
