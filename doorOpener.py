@@ -1,5 +1,11 @@
-strikeDuration = 1234
+import RPi.GPIO as GPIO
+
+gpio_pin = 40
+strikeDuration = 1
 
 def openDoor():
-    # send a high to relais to open door (for x time duration)
-    return True
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(gpio_pin, GPIO.OUT)
+    GPIO.output(port_or_pin, 1)
+    sleep(strikeDuration)
+    GPIO.output(port_or_pin, 0)
