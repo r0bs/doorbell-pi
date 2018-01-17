@@ -26,5 +26,5 @@ class RingSignaler:
 
         localtime = time.asctime( time.localtime(time.time()) )
 
-        print("Doorbell rang on:" + localtime + ". Sending notification to" + secrets.chatId)
+        print("Doorbell rang on: " + localtime + ". Sending notification to" + secrets.chatId)
         bot.sendMessage(secrets.chatId, message)
