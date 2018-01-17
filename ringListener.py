@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from ringSignaler import RingSignaler
 from time import sleep
 
-gpio_pin = 26
+gpio_pin = 7
 
 def startListeningForRing(tokenhandler):
     try:
