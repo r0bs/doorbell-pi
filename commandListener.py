@@ -1,6 +1,7 @@
 import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from doorOpener import openDoor
+import gui
 
 hostName = "0.0.0.0"
 hostPort = 9000
@@ -14,17 +15,13 @@ class CommandHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write(bytes("<html><head><title>Srrrr....</title></head>", "utf-8"))
-            self.wfile.write(bytes("<body><h1>Srrrr....</h1>", "utf-8"))
-            self.wfile.write(bytes("<p>Opening the door.</p>", "utf-8"))
-            self.wfile.write(bytes("</body></html>", "utf-8"))
+            self.wfile.write(bytes(gui.success, "utf-8"))
+
         else:
             self.send_response(403)
             self.send_header("Content-type", "text/html")
             self.end_headers()
-            self.wfile.write(bytes("<html><head><title>Nope</title></head>", "utf-8"))
-            self.wfile.write(bytes("<body><p>Door stays closed.</p>", "utf-8"))
-            self.wfile.write(bytes("</body></html>", "utf-8"))
+            self.wfile.write(bytes(gui.rejection, "utf-8"))
 
 class CommandServer:
 
