@@ -11,9 +11,9 @@ def startListeningForRing(tokenhandler):
         GPIO.setup(gpio_pin, GPIO.IN)
         GPIO.add_event_detect(gpio_pin, GPIO.FALLING, callback = signaler.sendNotification, bouncetime = 400)
         while True:
-            print(.)
+            print(".")
             sleep(0.1)
-            print(..)
+            print("..")
     except KeyboardInterrupt:
         GPIO.cleanup()
         print("stops listening for ring")
