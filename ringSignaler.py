@@ -24,5 +24,7 @@ class RingSignaler:
         bot = telegram.Bot(token=secrets.telegramToken)
         message = self.composeMessage()
 
-        print(time.asctime( time.localtime(time.time()) + ": Sending notification to" + secrets.chatId)
+        localtime = time.asctime( time.localtime(time.time()) )
+        
+        print(localtime + ": Sending notification to" + secrets.chatId)
         bot.sendMessage(secrets.chatId, message)
