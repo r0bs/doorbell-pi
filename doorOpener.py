@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 
 gpio_pin = 40
-strikeDuration = 1
+strikeDuration = 1.7
 
 def openDoor():
     GPIO.setmode(GPIO.BOARD)
