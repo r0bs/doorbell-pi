@@ -4,7 +4,7 @@ import time
 
 gpio_pin = 7
 
-def startListeningForRing(tokenhandler):
+def startListeningForRing():
     try:
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(gpio_pin, GPIO.IN)
@@ -21,5 +21,5 @@ def ringHandler(pin):
     localtime = time.asctime( time.localtime(time.time()) )
     print("Doorbell rang at: " + localtime)
     
-    signaler = Notifier(tokenhandler)
+    signaler = Notifier()
     signaler.sendNotification()

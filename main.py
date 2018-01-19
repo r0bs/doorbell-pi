@@ -1,17 +1,17 @@
 import threading
 import logging
 from time import sleep
-from tokenHandler import TokenHandler
+#from tokenHandler import TokenHandler
 from messageListener import messageListener
 # from commandListener import CommandServer
 from ringListener import startListeningForRing
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-tokenhandler = TokenHandler()
+#tokenhandler = TokenHandler()
 
 def runRingSignaler():
-    startListeningForRing(tokenhandler)
+    startListeningForRing()
 
 # def runCommandServer():
 #     CommandServer(tokenhandler)
