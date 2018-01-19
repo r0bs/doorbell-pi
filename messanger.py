@@ -24,6 +24,7 @@ def sendNotification():
     bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)
 
 def messageListener():
+    print("Starting message listener...")
     updater = Updater(token=secrets.telegramToken)
     dispatcher = updater.dispatcher
     msg_open_handler = CommandHandler('/open', open)
