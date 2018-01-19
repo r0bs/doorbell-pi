@@ -15,6 +15,10 @@ def handleOpenCommand(bot, update):
     bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
     doorOpener.openDoor()
 
+def handleStartCommand(bot, update):
+    print("Received start command.")
+    bot.sendMessage(secrets.chatId, text="Hi! Send /open to open the door or wait for ring signal.")
+
 def messageListener():
     print("Starting Telegram message listener...")
     updater = Updater(token=secrets.telegramToken)
