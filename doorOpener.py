@@ -11,5 +11,6 @@ def openDoor():
     print("Opening door for " + str(strikeDuration) + " seconds.")
     sleep(strikeDuration)
     GPIO.output(gpio_pin, 1)
+    GPIO.cleanup()
 
 openDoor()
