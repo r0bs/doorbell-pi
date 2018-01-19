@@ -11,7 +11,7 @@ def startListeningForRing():
     try:
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(gpio_pin, GPIO.IN)
-        GPIO.add_event_detect(gpio_pin, GPIO.FALLING, callback = ringHandler, bouncetime = 300)
+        GPIO.add_event_detect(gpio_pin, GPIO.FALLING, callback = ringHandler, bouncetime = 800)
         print("Listening for ring signal on GPIO PIN #" + str(gpio_pin))
         while True:
             time.sleep(0.2)
