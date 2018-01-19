@@ -6,8 +6,8 @@ from telegram.ext import Updater, CallbackQueryHandler
 def handleButtonCallback(bot, update):
     msg = update.callback_query.data
     if (msg == "open"):
-        doorOpener.openDoor()
         bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
+        doorOpener.openDoor()
 
 def messageListener():
     print("Starting Telegram message listener...")
