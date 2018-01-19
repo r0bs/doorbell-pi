@@ -26,9 +26,11 @@ def messageListener():
 
     callback_handler = CallbackQueryHandler(handleButtonCallback)
 
-    command_handler = CommandHandler("open", handleOpenCommand)
+    start_command_handler = CommandHandler("open", handleStartCommand)
+    open_command_handler = CommandHandler("open", handleOpenCommand)
 
     dispatcher.add_handler(callback_handler)
-    dispatcher.add_handler(command_handler)
+    dispatcher.add_handler(start_command_handler)
+    dispatcher.add_handler(open_command_handler)
 
     updater.start_polling()
