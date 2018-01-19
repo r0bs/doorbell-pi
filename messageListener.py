@@ -6,10 +6,12 @@ from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 def handleButtonCallback(bot, update):
     msg = update.callback_query.data
     if (msg == "open"):
+        print("Received callback instruction to open the door.")
         bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
         doorOpener.openDoor()
 
 def handleOpenCommand(bot, update):
+    print("Received message instruction to open the door.")
     bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
     doorOpener.openDoor()
 
