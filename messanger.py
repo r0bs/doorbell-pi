@@ -4,10 +4,6 @@ from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 import secrets
 import time
 import logging
-
-
-
-
     
 def composeMessage():
     host = "http://raspberrypi:9000/"
@@ -20,7 +16,7 @@ def composeMessage():
 
 def yolo(bot, update):
     print(update.callback_query.data)
-    sendNotification()
+    bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
 
 def sendNotification():
     keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
