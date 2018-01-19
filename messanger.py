@@ -1,41 +1,35 @@
-import telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 import secrets
 import time
 import logging
-    
-def composeMessage():
-    host = "http://raspberrypi:9000/"
-    messageText = "Ring! Ring! Open: "
-    
-    url = host 
-
-    message = messageText + url
-    return "Es hat an der Tür geklingelt"
-
-def yolo(bot, update):
-    print(update.callback_query.data)
-    bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
-
-def sendNotification():
-    keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    bot = telegram.Bot(token=secrets.telegramToken)
-    message = composeMessage()
-
-    bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)
-
-sendNotification()
+import telegram
+import doorOpener
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-updater = Updater(token=secrets.telegramToken)
-dispatcher = updater.dispatcher
-start_handler = CommandHandler('1', yolo)
-callback_handler = CallbackQueryHandler(yolo)
-dispatcher.add_handler(start_handler)
-dispatcher.add_handler(callback_handler)
-updater.start_polling()
+def open(bot, update):
+    msg = update.callback_query.data
+    if (msg == "open"):
+        doorOpener.openDoor()
+        bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
+
+def sendNotification():
+    keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+
+    bot = telegram.Bot(token=secrets.telegramToken)
+    message = "Es hat geklingelt."
+
+    bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)
+
+def messageListener():
+    updater = Updater(token=secrets.telegramToken)
+    dispatcher = updater.dispatcher
+    msg_open_handler = CommandHandler('/open', open)
+    callback_handler = CallbackQueryHandler(open)
+    dispatcher.add_handler(msg_open_handler)
+    dispatcher.add_handler(callback_handler)
+    updater.start_polling()
+
+messageListener()
