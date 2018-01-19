@@ -2,7 +2,7 @@ import secrets
 import telegram
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
-class Notifier:
+# class Notifier:
 
     # def __init__(self, tokenHandler):
     #     self.tokenHandler = tokenHandler
@@ -20,13 +20,13 @@ class Notifier:
     #     message = messageText + url
     #     return message
 
-    def sendNotification():
-        print("Sending notification to chat #" + secrets.chatId)
+def sendNotification():
+    print("Sending notification to chat #" + secrets.chatId)
 
-        bot = telegram.Bot(token=secrets.telegramToken)
+    bot = telegram.Bot(token=secrets.telegramToken)
 
-        message = "Es hat geklingelt."
-        keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
-        reply_markup = InlineKeyboardMarkup(keyboard)
+    message = "Es hat geklingelt."
+    keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
 
-        bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)
+    bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)

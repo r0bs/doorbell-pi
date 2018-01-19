@@ -7,7 +7,6 @@ gpio_pin = 7
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
-
 def startListeningForRing():
     try:
         GPIO.setmode(GPIO.BOARD)
@@ -25,5 +24,5 @@ def ringHandler(pin):
     localtime = time.asctime( time.localtime(time.time()) )
     print("Doorbell rang at: " + localtime)
     
-    signaler = Notifier()
+
     signaler.sendNotification()
