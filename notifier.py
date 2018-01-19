@@ -4,8 +4,8 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 
 class Notifier:
 
-    def __init__(self, tokenHandler):
-        self.tokenHandler = tokenHandler
+    # def __init__(self, tokenHandler):
+    #     self.tokenHandler = tokenHandler
 
     # def getTokenAsString(self):
     #     return self.tokenHandler.generateToken().decode("utf-8")
@@ -20,7 +20,7 @@ class Notifier:
     #     message = messageText + url
     #     return message
 
-    def sendNotification(self):
+    def sendNotification():
         print("Sending notification to chat #" + secrets.chatId)
 
         bot = telegram.Bot(token=secrets.telegramToken)
