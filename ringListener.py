@@ -1,5 +1,5 @@
 import RPi.GPIO as GPIO
-from notifier import Notifier
+import notifier
 import time
 import logging
 
@@ -24,5 +24,4 @@ def ringHandler(pin):
     localtime = time.asctime( time.localtime(time.time()) )
     print("Doorbell rang at: " + localtime)
     
-
-    signaler.sendNotification()
+    notifier.sendNotification()
