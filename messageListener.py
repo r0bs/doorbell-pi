@@ -3,6 +3,10 @@ import telegram
 import doorOpener
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 
+
+def checkUserValidity(update):
+    
+
 def handleButtonCallback(bot, update):
     msg = update.callback_query.data
     if (msg == "open"):
