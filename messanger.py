@@ -34,3 +34,4 @@ def messageListener():
     updater.start_polling()
 
 messageListener()
+sendNotification()
