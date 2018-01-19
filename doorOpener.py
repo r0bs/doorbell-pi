@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import sleep from time
 
 gpio_pin = 40
 strikeDuration = 1
