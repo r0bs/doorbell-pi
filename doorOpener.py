@@ -10,3 +10,6 @@ def openDoor():
     print("Opening door for " + strikeDuration + " seconds.")
     sleep(strikeDuration)
     GPIO.output(gpio_pin, 0)
+
+
+openDoor()
