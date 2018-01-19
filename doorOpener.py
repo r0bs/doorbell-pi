@@ -7,8 +7,10 @@ strikeDuration = 2
 def openDoor():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(gpio_pin, GPIO.OUT)
+
     GPIO.output(gpio_pin, 0)
     print("Opening door for " + str(strikeDuration) + " seconds.")
     sleep(strikeDuration)
     GPIO.output(gpio_pin, 1)
+    
     GPIO.cleanup()
