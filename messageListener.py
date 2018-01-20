@@ -4,9 +4,8 @@ import doorOpener
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 
 def isAuthorized(chatId):
-    valid = if chatId in secrets.validChats
-    if(valid)
-        print("Calling chatId isn't valid.")
+    return chatId in secrets.validChats
+    print("Calling chatId isn't valid.")
 
 def handleButtonCallback(bot, update):
     if(isAuthorized(update))
