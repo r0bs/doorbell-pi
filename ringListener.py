@@ -16,7 +16,7 @@ def startListeningForRing():
         print("Listening for ring signal on GPIO PIN #" + str(gpio_pin))
         
         while True:
-            time.sleep(0.2)
+            time.sleep(0.2) 
         print("Stopped listing for Ring")
     
     except KeyboardInterrupt:
