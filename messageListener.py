@@ -45,7 +45,3 @@ def messageListener():
     dispatcher.add_handler(open_command_handler)
 
     updater.start_polling()
-
-
-messageListener()
-notifier.sendNotification()
