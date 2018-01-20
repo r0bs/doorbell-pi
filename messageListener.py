@@ -1,7 +1,7 @@
 import secrets
 import telegram
 import notifier
-#import doorOpener
+import doorOpener
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 
 def isAuthorized(chatId):
