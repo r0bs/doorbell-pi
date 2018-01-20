@@ -1,14 +1,18 @@
 import secrets
 import telegram
-import doorOpener
+import notifier
+#import doorOpener
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 
 def isAuthorized(chatId):
-    return chatId in secrets.validChats
-    print("Calling chatId isn't valid.")
+    isValid = str(chatId) in secrets.validChats
+    if(isValid):
+        return True
+    else:
+        print("Calling chatId" + chatIdchatId + "isn't valid.")
 
 def handleButtonCallback(bot, update):
-    if(isAuthorized(update)):
+    if(isAuthorized(update.callback_query.message.chat.id)):
         msg = update.callback_query.data
         if (msg == "open"):
             print("Received callback instruction to open the door.")
@@ -16,13 +20,13 @@ def handleButtonCallback(bot, update):
             doorOpener.openDoor()
 
 def handleOpenCommand(bot, update):
-    if(isAuthorized(update)):
+    if(isAuthorized(update.message.chat.id)):
         print("Received message instruction to open the door.")
         bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
         doorOpener.openDoor()
 
 def handleStartCommand(bot, update):
-    if(isAuthorized(update)):
+    if(isAuthorized(update.message.chat.id)):
         print("Received start command.")
         bot.sendMessage(secrets.chatId, text="Hi! Send /open to open the door or wait for ring signal.")
 
@@ -41,3 +45,7 @@ def messageListener():
     dispatcher.add_handler(open_command_handler)
 
     updater.start_polling()
+
+
+messageListener()
+notifier.sendNotification()
