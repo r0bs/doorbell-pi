@@ -3,6 +3,8 @@ Description=Doorbell Telgram Adapter
 After=multi-user.target
 
 [Service]
+WorkingDirectory=/home/pi/doorbell-pi/
+User=pi
 Type=idle
 ExecStart=/usr/bin/python /home/pi/doorbell-pi/main.py > /home/pi/doorbell-pi/doorbell.log  2>&1
 
