@@ -7,8 +7,8 @@ def sendNotification():
 
     bot = telegram.Bot(token=secrets.telegramToken)
 
-    message = "Es hat geklingelt."
-    keyboard = [[InlineKeyboardButton("Öffnen", callback_data='open')]]
+    message = "Doorbell rings."
+    keyboard = [[InlineKeyboardButton("Open", callback_data='open')]]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
     bot.sendMessage(secrets.chatId, text=message, reply_markup=reply_markup)

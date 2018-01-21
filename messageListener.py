@@ -16,13 +16,13 @@ def handleButtonCallback(bot, update):
         msg = update.callback_query.data
         if (msg == "open"):
             print("Received callback instruction to open the door.")
-            bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
+            bot.sendMessage(secrets.chatId, text="Door is opening.")
             doorOpener.openDoor()
 
 def handleOpenCommand(bot, update):
     if(isAuthorized(update.message.chat.id)):
         print("Received message instruction to open the door.")
-        bot.sendMessage(secrets.chatId, text="Tür wird geöffnet")
+        bot.sendMessage(secrets.chatId, text="Door is opening.")
         doorOpener.openDoor()
 
 def handleStartCommand(bot, update):
