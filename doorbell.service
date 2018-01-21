@@ -4,7 +4,8 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/usr/bin/python /home/pi/doorbell-pi/main.py > /home/pi/doorbell-pi/doorbell.log  2>&1
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/doorbell-pi/main.py > /home/pi/doorbell-pi/doorbell.log  2>&1
 Restart=always
 
 [Install]
