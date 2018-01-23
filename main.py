@@ -3,6 +3,7 @@
 import threading
 import logging
 import gpioConfig
+import RPi.GPIO as GPIO
 from time import sleep
 from messageListener import messageListener
 from ringListener import startListeningForRing
