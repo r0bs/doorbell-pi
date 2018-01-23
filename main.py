@@ -4,6 +4,7 @@ import threading
 import logging
 import gpioConfig
 import RPi.GPIO as GPIO
+
 from time import sleep
 from messageListener import messageListener
 from ringListener import startListeningForRing
@@ -15,6 +16,14 @@ def runRingSignaler():
 
 def runMessageListener():
     messageListener()
+
+def gpioStartup():
+    GPIO.setmode(GPIO.BOARD)
+
+    GPIO.setup(gpioConfig.doorOpenerPin, GPIO.OUT)
+    GPIO.output(gpioConfig.doorOpenerPin, 1)
+
+    GPIO.setup(gpioConfig.ringListenerPin, GPIO.IN)
 
 if __name__=='__main__':
     gpioStartup()
