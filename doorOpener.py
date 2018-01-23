@@ -8,4 +8,4 @@ def openDoor():
     print("...")
     sleep(gpioConfig.strikeDuration)
     GPIO.output(gpioConfig.doorOpenerPin, 1)
-    print("Done.")
+    print("Opening door done.")
