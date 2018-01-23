@@ -3,7 +3,7 @@ import gpioConfig
 from time import sleep
 
 def openDoor():
-    GPIO.output(gpioConfig.doorOpenerPin, 1)
+    GPIO.output(gpioConfig.doorOpenerPin, 0)
     print("Opening door for " + str(gpioConfig.strikeDuration) + " seconds.")
     print("...")
     sleep(gpioConfig.strikeDuration)

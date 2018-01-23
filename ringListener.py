@@ -17,6 +17,6 @@ def startListeningForRing():
 
 def ringHandler(pin):
     localtime = time.asctime( time.localtime(time.time()) )
-    print("Doorbell rang at: " + localtime)
+    print("Doorbell" + pin +" rang at: " + localtime)
 
     notifier.sendNotification()
