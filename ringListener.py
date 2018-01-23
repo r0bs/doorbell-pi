@@ -7,6 +7,10 @@ import gpioConfig
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 def startListeningForRing():
+    GPIO.setmode(GPIO.BOARD)
+
+    GPIO.setup(gpioConfig.ringListenerPin, GPIO.IN)
+
     GPIO.add_event_detect(gpioConfig.ringListenerPin, GPIO.FALLING, callback = ringHandler, bouncetime = 800)
     print("Listening for ring signal on GPIO PIN #" + str(gpioConfig.ringListenerPin))
     
