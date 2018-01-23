@@ -1,16 +1,9 @@
 import RPi.GPIO as GPIO
+import gpioConfig
 from time import sleep
 
-gpio_pin = 40
-strikeDuration = 2
-
 def openDoor():
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(gpio_pin, GPIO.OUT)
-
-    GPIO.output(gpio_pin, 0)
-    print("Opening door for " + str(strikeDuration) + " seconds.")
-    sleep(strikeDuration)
-    GPIO.output(gpio_pin, 1)
-    
-    GPIO.cleanup()
+    GPIO.output(gpioConfig.doorOpenerPin, 0)
+    print("Opening door for " + str(gpioConfig.strikeDuration) + " seconds.")
+    sleep(gpioConfig.strikeDuration)
+    GPIO.output(gpioConfig.doorOpenerPin, 1)
