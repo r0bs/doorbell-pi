@@ -18,9 +18,9 @@ def startListeningForRing():
 def ringHandler(pin):
     global starttime
     global endtime
-    if GPIO.input(gpioConfig.ringListenerPin) == 0
+    if GPIO.input(gpioConfig.ringListenerPin) == 0:
         starttime = int(round(time.time() * 1000))
-    if GPIO.input(gpioConfig.ringListenerPin) == 0
+    else:
         endtime = int(round(time.time() * 1000))
         delta = endtime - starttime
         print("Doorbell rang for " + delta "ms")
