@@ -7,7 +7,7 @@ import gpioConfig
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 def startListeningForRing():
-    GPIO.add_event_detect(gpioConfig.ringListenerPin, GPIO.FALLING, callback = ringHandler, bouncetime = 800)
+    GPIO.add_event_detect(gpioConfig.ringListenerPin, GPIO.BOTH, callback = ringHandler, bouncetime = 800)
     print("Listening for ring signal on GPIO PIN #" + str(gpioConfig.ringListenerPin))
     
     while True:
@@ -16,7 +16,16 @@ def startListeningForRing():
 
 
 def ringHandler(pin):
-    localtime = time.asctime( time.localtime(time.time()) )
-    print("Doorbell rang on PIN #" + str(pin) +" at: " + localtime)
+    global starttime
+    global endtime
+    if GPIO.input(gpioConfig.ringListenerPin) == 0
+        starttime = int(round(time.time() * 1000))
+    if GPIO.input(gpioConfig.ringListenerPin) == 0
+        endtime = int(round(time.time() * 1000))
+        delta = endtime - starttime
+        print("Doorbell rang for " + delta "ms")
 
-    notifier.sendNotification()
+        localtime = time.asctime( time.localtime(time.time()) )
+        print("Doorbell rang on PIN #" + str(pin) +" at: " + localtime)
+
+        notifier.sendNotification()
