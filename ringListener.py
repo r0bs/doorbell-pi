@@ -20,10 +20,10 @@ def ringHandler(pin):
     global endtime
     if GPIO.input(gpioConfig.ringListenerPin) == 0:
         starttime = int(round(time.time() * 1000))
-    else:
+    elif starttime is not False:
         endtime = int(round(time.time() * 1000))
         delta = endtime - starttime
-        starttime = 99999999999
+        starttime = False
         print("Doorbell rang for " + str(delta) + "ms")
 
         localtime = time.asctime( time.localtime(time.time()) )
