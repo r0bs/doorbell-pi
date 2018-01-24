@@ -23,6 +23,7 @@ def ringHandler(pin):
     else:
         endtime = int(round(time.time() * 1000))
         delta = endtime - starttime
+        starttime = 99999999999
         print("Doorbell rang for " + str(delta) + "ms")
 
         localtime = time.asctime( time.localtime(time.time()) )
