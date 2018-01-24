@@ -21,6 +21,7 @@ def ringHandler(pin):
         
     if GPIO.input(gpioConfig.ringListenerPin) == 0 and starttime is False:
         starttime = int(round(time.time() * 1000))
+        
     elif starttime is not False:
         endtime = int(round(time.time() * 1000))
         delta = endtime - starttime
