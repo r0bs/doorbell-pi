@@ -16,18 +16,15 @@ def startListeningForRing():
 
 
 def ringHandler(pin):
-    if "starttime" not in globals():
-        global starttime
-        starttime = False
+    if "openeButtonCycle" not in globals():
+        global openeButtonCycle
+        openeButtonCycle = True
         
-    if GPIO.input(gpioConfig.ringListenerPin) == 0 and starttime is False:
-        starttime = int(round(time.time() * 1000))
+    if GPIO.input(gpioConfig.ringListenerPin) == 0 and openeButtonCycle is True:
+        openeButtonCycle = False
 
-    elif starttime is not False:
-        endtime = int(round(time.time() * 1000))
-        delta = endtime - starttime
-        starttime = False
-        print("Doorbell rang for " + str(delta) + "ms")
+    elif openeButtonCycle is False
+        openeButtonCycle = True
 
         localtime = time.asctime( time.localtime(time.time()) )
         print("Doorbell rang on PIN #" + str(pin) +" at: " + localtime)
