@@ -23,7 +23,7 @@ def ringHandler(pin):
     if GPIO.input(gpioConfig.ringListenerPin) == 0 and openeButtonCycle is True:
         openeButtonCycle = False
 
-    elif openeButtonCycle is False
+    elif openeButtonCycle is False:
         openeButtonCycle = True
 
         localtime = time.asctime( time.localtime(time.time()) )
