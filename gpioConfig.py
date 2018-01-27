@@ -1,3 +1,5 @@
-doorOpenerPin = 40
+doorOpenerPin = 11
+ringListenerPin = 3
+buzzerPin = 8
+
 strikeDuration = 2
-ringListenerPin = 7
