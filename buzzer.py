@@ -3,10 +3,11 @@ import gpioConfig
 from time import sleep
 
 def buzz():
-    GPIO.output(gpioConfig.buzzerPin, 1)
-    print("Making sound for " + str(gpioConfig.strikeDuration) + " seconds.")
-    print("...")
-    sleep(gpioConfig.strikeDuration)
+    print("Making sound")
+    for beep in range(0, 10):
+        GPIO.output(gpioConfig.buzzerPin, 1)
+        time.sleep(0.1)
+        GPIO.output(gpioConfig.buzzerPin, 0)
     print("Sound stopped.")
-    GPIO.output(gpioConfig.buzzerPin, 0)
+    
     
