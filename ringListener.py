@@ -3,6 +3,7 @@ import notifier
 import time
 import logging
 import gpioConfig
+import buzzer
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -30,3 +31,4 @@ def ringHandler(pin):
         print("Doorbell rang on PIN #" + str(pin) +" at: " + localtime)
 
         notifier.sendNotification()
+        buzzer.buzz()
