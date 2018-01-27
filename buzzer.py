@@ -8,6 +8,7 @@ def buzz():
         GPIO.output(gpioConfig.buzzerPin, 1)
         sleep(0.1)
         GPIO.output(gpioConfig.buzzerPin, 0)
+        sleep(0.3)
     print("Sound stopped.")
     
     
