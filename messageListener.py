@@ -2,6 +2,7 @@ import secrets
 import telegram
 import notifier
 import doorOpener
+import buzzer
 from telegram.ext import Updater, CallbackQueryHandler, CommandHandler
 
 def isAuthorized(chatId):
@@ -30,6 +31,12 @@ def handleStartCommand(bot, update):
         print("Received start command.")
         bot.sendMessage(secrets.chatId, text="Hi! Send /open to open the door or wait for ring signal.")
 
+def handleRingCommand(bot, update):
+    if(isAuthorized(update.message.chat.id)):
+        print("Received sound command.")
+        bot.sendMessage(secrets.chatId, text="Beep! Beep! Beep!")
+        buzzer.buzz()
+
 def messageListener():
     print("Starting Telegram message listener...")
     updater = Updater(token=secrets.telegramToken)
@@ -39,9 +46,11 @@ def messageListener():
 
     start_command_handler = CommandHandler("start", handleStartCommand)
     open_command_handler = CommandHandler("open", handleOpenCommand)
+    ring_command_handler = CommandHandler("ring", handleRingCommand)
 
     dispatcher.add_handler(callback_handler)
     dispatcher.add_handler(start_command_handler)
     dispatcher.add_handler(open_command_handler)
+    dispatcher.add_handler(ring_command_handler)
 
     updater.start_polling()
