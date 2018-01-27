@@ -6,7 +6,7 @@ def buzz():
     print("Making sound")
     for beep in range(0, 10):
         GPIO.output(gpioConfig.buzzerPin, 1)
-        time.sleep(0.1)
+        sleep(0.1)
         GPIO.output(gpioConfig.buzzerPin, 0)
     print("Sound stopped.")
     
