@@ -4,7 +4,7 @@ import threading
 import logging
 import gpioConfig
 import RPi.GPIO as GPIO
-import buzzer
+from buzzer import buzz
 
 from time import sleep
 from messageListener import messageListener
@@ -32,6 +32,6 @@ def gpioStartup():
 
 if __name__=='__main__':
     gpioStartup()
-    buzzer.buzz()
+    buzz()
     threading.Thread(target=runRingSignaler).start()
     threading.Thread(target=runMessageListener).start()
