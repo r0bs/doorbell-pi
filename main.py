@@ -28,6 +28,6 @@ def gpioStartup():
 
 if __name__=='__main__':
     gpioStartup()
-    buzz()
+    buzzer.buzz()
     threading.Thread(target=runRingSignaler).start()
     threading.Thread(target=runMessageListener).start()
