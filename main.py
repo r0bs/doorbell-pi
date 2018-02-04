@@ -22,7 +22,7 @@ def runMessageListener():
 def signal_handler(signal, frame):
         GPIO.cleanup()
         print("Terminating Doorbell.")
-        sys.exit(0)
+        sys.exit(1)
 
 def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
