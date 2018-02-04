@@ -18,6 +18,7 @@ def runMessageListener():
     messageListener()
 
 def gpioStartup():
+    GPIO.cleanup()
     GPIO.setmode(GPIO.BOARD)
 
     GPIO.setup(gpioConfig.doorOpenerPin, GPIO.OUT)
