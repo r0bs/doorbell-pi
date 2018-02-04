@@ -20,8 +20,8 @@ def runMessageListener():
     messageListener()
 
 def signal_handler(signal, frame):
-        print('You pressed Ctrl+C!')
-        sys.exit(0)
+        GPIO.cleanup()
+        print("Terminating Doorbell.")
 
 def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
