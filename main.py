@@ -37,7 +37,7 @@ def gpioStartup():
     GPIO.setup(gpioConfig.ringListenerPin, GPIO.IN)
 
 if __name__=='__main__':
-        gpioStartup()
-        signal.signal(signal.SIGINT, handleKillSignal)
-        threading.Thread(target=runRingSignaler).start()
-        threading.Thread(target=runMessageListener).start()
+    gpioStartup()
+    signal.signal(signal.SIGINT, handleKillSignal)
+    threading.Thread(target=runRingSignaler).start()
+    threading.Thread(target=runMessageListener).start()
