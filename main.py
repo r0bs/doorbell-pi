@@ -28,7 +28,7 @@ def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
 
     GPIO.setup(gpioConfig.doorOpenerPin, GPIO.OUT)
-    GPIO.output(gpioConfig.doorOpenerPin, 1)
+    GPIO.output(gpioConfig.doorOpenerPin, 0)
 
     GPIO.setup(gpioConfig.buzzerPin, GPIO.OUT)
     GPIO.output(gpioConfig.buzzerPin, 0)
