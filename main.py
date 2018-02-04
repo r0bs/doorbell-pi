@@ -4,7 +4,8 @@ import threading
 import logging
 import gpioConfig
 import RPi.GPIO as GPIO
-import serviceTermination
+import signal
+import sys
 
 from time import sleep
 from messageListener import messageListener
@@ -18,14 +19,9 @@ def runRingSignaler():
 def runMessageListener():
     messageListener()
 
-def runKillListener():
-    killer = serviceTermination()
-    while True:
-        time.sleep(0.2)
-        if killer.kill_now:
-            break
-    GPIO.cleanup()
-    print("End of the program.")
+def signal_handler(signal, frame):
+        print('You pressed Ctrl+C!')
+        sys.exit(0)
 
 def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
@@ -42,6 +38,6 @@ def gpioStartup():
 if __name__=='__main__':
         gpioStartup()
         runKillListener()
+        signal.signal(signal.SIGINT, signal_handler)
         threading.Thread(target=runRingSignaler).start()
         threading.Thread(target=runMessageListener).start()
-        #threading.Thread(target=runKillListener).start()
