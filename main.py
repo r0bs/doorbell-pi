@@ -19,10 +19,10 @@ def runRingSignaler():
 def runMessageListener():
     messageListener()
 
-def signal_handler(signal, frame):
-        GPIO.cleanup()
-        print("Terminating Doorbell.")
-        sys.exit(1)
+def handleKillSignal(signal, frame):
+    GPIO.cleanup()
+    print("Terminating Doorbell & cleaning up GPIO.")
+    sys.exit(1)
 
 def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
@@ -38,6 +38,6 @@ def gpioStartup():
 
 if __name__=='__main__':
         gpioStartup()
-        signal.signal(signal.SIGINT, signal_handler)
+        signal.signal(signal.SIGINT, handleKillSignal)
         threading.Thread(target=runRingSignaler).start()
         threading.Thread(target=runMessageListener).start()
