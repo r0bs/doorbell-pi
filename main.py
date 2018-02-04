@@ -25,7 +25,7 @@ def runKillListener():
         if killer.kill_now:
             break
     GPIO.cleanup()
-    print "End of the program."
+    print("End of the program.")
 
 def gpioStartup():
     GPIO.setmode(GPIO.BOARD)
