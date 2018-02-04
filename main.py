@@ -18,7 +18,6 @@ def runMessageListener():
     messageListener()
 
 def gpioStartup():
-    GPIO.cleanup()
     GPIO.setmode(GPIO.BOARD)
 
     GPIO.setup(gpioConfig.doorOpenerPin, GPIO.OUT)
@@ -31,9 +30,6 @@ def gpioStartup():
     GPIO.setup(gpioConfig.ringListenerPin, GPIO.IN)
 
 if __name__=='__main__':
-    try:
         gpioStartup()
         threading.Thread(target=runRingSignaler).start()
         threading.Thread(target=runMessageListener).start()
-    except KeyboardInterrupt:
-        GPIO.cleanup()
