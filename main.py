@@ -30,6 +30,9 @@ def gpioStartup():
     GPIO.setup(gpioConfig.ringListenerPin, GPIO.IN)
 
 if __name__=='__main__':
-    gpioStartup()
-    threading.Thread(target=runRingSignaler).start()
-    threading.Thread(target=runMessageListener).start()
+    try:
+        gpioStartup()
+        threading.Thread(target=runRingSignaler).start()
+        threading.Thread(target=runMessageListener).start()
+    except KeyboardInterrupt:
+        GPIO.cleanup()
